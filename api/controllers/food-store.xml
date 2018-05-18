@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+  <food>
+    <name>Chicken Pie</name>
+    <price>345</price>
+  </food>
+  <food>
+    <name>Fish roll</name>
+    <price>122</price>
+  </food>
+  <food>
+    <name>Beef Samosa</name>
+    <price>56</price>
+  </food>
+</data>
