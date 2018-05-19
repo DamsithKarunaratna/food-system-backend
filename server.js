@@ -1,11 +1,14 @@
-var express = require('express');
-var bodyparser = require('body-parser');
-var routes = require('./api/routes');
-var cors = require('cors');
-var logger = require('./api/middleware/requestLogger').myLogger;
+'use strict';
 
-var app = express();
-var port = process.env.PORT || 3000;
+const express = require('express');
+const bodyparser = require('body-parser');
+const routes = require('./api/routes');
+const cors = require('cors');
+const logger = require('./api/middleware/requestLogger').myLogger;
+
+const app = express();
+app.set('port', process.env.PORT || 3001);
+app.set('superSecret', "secretsauce"); // secret variable
 
 // setting middleware
 app.use(cors());
@@ -16,6 +19,13 @@ app.use(logger);
 app.use('/api', routes);
 
 // starting the server
-app.listen(port, () => {
-    console.log("Food API listening on port " + port);
+
+// app.listen(port, () => {
+//     console.log( '\x1b[31mA\x1b[32mP\x1b[33mP\x1b[34m S\x1b[35mT\x1b[31mA\x1b[32mR\x1b[35mT\x1b[33mE\x1b[32mD\x1b[0m');
+//     console.log("Food API listening on port " + port);
+// });
+
+app.listen(app.get('port'), () => {
+    console.log( '\x1b[31mA\x1b[32mP\x1b[33mP\x1b[34m S\x1b[35mT\x1b[31mA\x1b[32mR\x1b[35mT\x1b[33mE\x1b[32mD\x1b[0m');
+    console.log('Food API listening on port ' + app.get('port'));
 });

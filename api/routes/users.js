@@ -1,16 +1,22 @@
 var router = require('express').Router();
 var userService = require('../controllers/user-controller');
 
+/**
+ * @author Damsith
+ */
 router.get('/', function (req, res) {
     userService.getUsers()
-        .then(function (data) {
-            res.json(data);
+        .then(function (users) {
+            res.json(users.data.user);
         })
         .catch(function (err) {
             res.send(err);
         });
 });
 
+/**
+ * @author Damsith
+ */
 router.post('/add', function (req, res) {
     user = { "username": "NEW", "password": "123" };
     userService.addUser(user)

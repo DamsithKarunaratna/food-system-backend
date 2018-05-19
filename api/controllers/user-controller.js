@@ -1,10 +1,20 @@
 var readXMLAsync = require('../helpers/XMLService').readXMLAsync;
 var writeXMLAsync = require('../helpers/XMLService').writeXMLAsync;
 
+/**
+ * @author Damsith
+ */
 module.exports.getUsers = () => {
     return readXMLAsync('/user-store.xml');
 }
 
+module.exports.getUser = () => {
+    return readXMLAsync('/user-store.xml');
+}
+
+/**
+ * @author Damsith
+ */
 module.exports.addUser = (user) => {
     return new Promise(function (resolve, reject) {
         readXMLAsync('/user-store.xml')

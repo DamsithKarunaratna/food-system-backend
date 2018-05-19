@@ -2,6 +2,9 @@ var fs = require('fs');
 var Parser = require('xml2js').Parser;
 var Builder = require('xml2js').Builder;
 
+/**
+ * @author Damsith
+ */
 module.exports.readXMLAsync = (filename) => {
 
     var XMLparser = new Parser({ explicitArray: false });
@@ -16,6 +19,9 @@ module.exports.readXMLAsync = (filename) => {
     });
 }
 
+/**
+ * @author Damsith
+ */
 module.exports.writeXMLAsync = (filename, obj) => {
 
     var XMLBuilder = new Builder();
