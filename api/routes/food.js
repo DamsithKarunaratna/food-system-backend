@@ -1,5 +1,8 @@
 var router = require('express').Router();
 var foodService = require('../controllers/food-controller');
+var authenticator = require('../middleware/authenticator').authenticator;
+
+router.use(authenticator);
 
 /**
  * @author Damsith

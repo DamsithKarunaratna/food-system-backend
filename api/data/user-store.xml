@@ -3,17 +3,21 @@
   <user>
     <username>Saman</username>
     <password>123</password>
+    <admin>true</admin>
   </user>
   <user>
     <username>Sunil</username>
     <password>123</password>
+    <admin>true</admin>
   </user>
   <user>
     <username>Nimal</username>
     <password>123</password>
+    <admin>true</admin>
   </user>
   <user>
     <username>NEW</username>
     <password>123</password>
+    <admin>true</admin>
   </user>
 </data>

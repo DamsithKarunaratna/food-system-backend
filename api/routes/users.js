@@ -1,5 +1,8 @@
 var router = require('express').Router();
 var userService = require('../controllers/user-controller');
+var authenticator = require('../middleware/authenticator').authenticator;
+
+router.use(authenticator);
 
 /**
  * @author Damsith

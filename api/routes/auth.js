@@ -1,13 +1,39 @@
 var router = require('express').Router();
-var foodService = require('../controllers/food-controller');
+var jwt = require('jsonwebtoken');
+var userService = require('../controllers/user-controller');
+
+
+const SECRET = "secretsauce";
+
 
 /**
  * @author Damsith
  */
-router.get('/', function (req, res) {
-    foodService.getFoods()
-        .then(function (foods) {
-            res.json(foods.data.food);
+
+
+router.post('/', function (req, res) {
+    userService.getUser(req.body.username)
+        .then(function (user) {
+            if (user.password !== req.body.password) {
+                res.send("password incorrect");
+            } else {
+
+                const payload = {
+                    admin: user.admin
+                };
+
+
+
+                var token = jwt.sign({ data: payload }, SECRET, { expiresIn: '1d' });
+                console.log("TOKEN : " + token);
+
+                res.json({
+                    success: true,
+                    message: 'Enjoy your token!',
+                    token: token
+                });
+
+            }
         })
         .catch(function (err) {
             res.send(err);

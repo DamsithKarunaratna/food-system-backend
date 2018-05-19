@@ -3,12 +3,12 @@
 const express = require('express');
 const bodyparser = require('body-parser');
 const routes = require('./api/routes');
+var jwt = require('jsonwebtoken');
 const cors = require('cors');
 const logger = require('./api/middleware/requestLogger').myLogger;
 
 const app = express();
 app.set('port', process.env.PORT || 3001);
-app.set('superSecret', "secretsauce"); // secret variable
 
 // setting middleware
 app.use(cors());
